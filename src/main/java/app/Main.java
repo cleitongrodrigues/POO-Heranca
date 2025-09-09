@@ -18,7 +18,7 @@ public class Main {
         System.out.println(tarefas[0].getDescricao());
         System.out.println(tarefas[4].getDescricao());
         System.out.println(compromissos[2].getDescricao());
-        System.out.println(pessoaFisica1.getNome());
-        System.out.println(pessoaFisica1.exibirInformacoes());
+        // System.out.println(pessoaFisica1.getNome());
+        // System.out.println(pessoaFisica1.exibirInformacoes());
     }
 }

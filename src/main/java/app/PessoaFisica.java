@@ -3,10 +3,7 @@ package app;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class PessoaFisica {
-    private String nome;
-    private String endereco;
-    private LocalDate dataCriacao;
+public class PessoaFisica extends Pessoa{
     private LocalDate dataNascimento;
     private String cpf;
 
@@ -15,23 +12,7 @@ public class PessoaFisica {
         this.setEndereco(endereco);
         this.setDataNascimento(dataNascimento);
         this.setCpf(cpf);
-        this.dataCriacao = LocalDate.now();
-    }
-
-    public String getNome() {
-        return this.nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getEndereco() {
-        return this.endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
+        this.setDataCriacao(LocalDate.now());
     }
 
     public LocalDate getDataNascimento() {
@@ -50,14 +31,13 @@ public class PessoaFisica {
         this.cpf = cpf;
     }
 
+    @Override
     public String exibirInformacoes() {
         DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        return "Nome: " + nome + "\n" +
-               "Endereço: " + endereco + "\n" +
-               "CPF: " + cpf + "\n" +
-               "Data de Criação: " + dataCriacao + "\n" +
-               "Data de Nascimento: " + dataNascimento + "\n" +
-               "Data de Nascimento: " + getDataNascimento().format(formatador) + "\n" +
-               "---------------------------------";
+        return "Nome: " + getNome() + "\n" +
+               "Endereço: " + getEndereco() + "\n" +
+               "CPF: " + getCpf() + "\n" +
+               "Data de Criação: " + getDataCriacao().format(formatador) + "\n" +
+               "Data de Nascimento: " + getDataNascimento();
     }
 }

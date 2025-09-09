@@ -1,11 +1,9 @@
 package app;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
-public class PessoaJuridica {
-    private String nome;
-    private String endereco;
-    private LocalDate dataCriacao;
+public class PessoaJuridica extends Pessoa{
     private String nomeFantasia;
     private String cnpj;
 
@@ -14,23 +12,7 @@ public class PessoaJuridica {
         this.setEndereco(endereco);
         this.setNomeFantasia(nomeFantasia);
         this.setCnpj(cnpj);
-        this.dataCriacao = LocalDate.now(); 
-    }
-
-    public String getNome() {
-        return this.nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getEndereco() {
-        return this.endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
+        this.setDataCriacao(LocalDate.now());
     }
 
     public String getNomeFantasia() {
@@ -49,12 +31,13 @@ public class PessoaJuridica {
         this.cnpj = cnpj;
     }
 
-
+    @Override
     public String exibirInformacoes() {
-        return "Nome: " + nome + "\n" +
-               "Endereço: " + endereco + "\n" +
-               "Nome Fantasia: " + nomeFantasia + "\n" +
-               "CNPJ: " + cnpj + "\n" +
-               "Data de Criação: " + dataCriacao;
+        DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return "Nome: " + getNome() + "\n" +
+               "Endereço: " + getEndereco() + "\n" +
+               "Nome Fantasia: " + getNomeFantasia() + "\n" +
+               "CNPJ: " + getCnpj() + "\n" +
+               "Data de Criação: " + getDataCriacao().format(formatador);
     }
 }
